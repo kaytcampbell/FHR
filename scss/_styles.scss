@@ -1,0 +1,233 @@
+@mixin letter-spacing{
+  letter-spacing: 0.2rem
+}
+$dark-blue: #021c4f;
+
+.header{
+  background: rgba(255, 255, 255, 0.9);
+  position: relative;
+}
+#home{
+  .main-nav .first .home a{
+    padding-bottom: 1rem;
+    border-bottom: 3px solid $primary-color;
+  }
+}
+.main-nav{
+  min-height: 140px;
+  ul{
+    list-style-type: none;
+    margin: 0;
+    margin-top: 5rem;
+    a:hover{
+      padding-bottom: 1rem;
+      border-bottom: 3px solid $primary-color;
+    }
+    &.left{
+      li{
+        float: left;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 0.2rem;
+        &:nth-child(2){
+          padding: 0 3rem;
+        }
+        &:nth-child(3){
+          padding-right: 2.2rem;
+        }
+      }
+    }
+    &.right.second{
+     li{
+       @include letter-spacing;
+       float:left;
+       text-transform: uppercase;
+       font-weight: 500;
+       &:nth-child(2){
+         padding: 0 3rem;
+       }
+     }
+    }
+  }
+  img{
+    margin: 30px auto;
+    text-align: center;
+    display: block;
+  }
+}
+
+.tall-hero{
+  background: url(../images/home-hero.png) no-repeat center center;
+  background-size: cover;
+  min-height: 688px;
+  margin-top: -145px;
+  .button{
+    margin-top: -60px;
+  }
+}
+.short-hero{
+  min-height: 140px;
+  &.about{
+    background: url(../images/about-hero.png) no-repeat center center;
+    background-size: cover;
+  }
+}
+
+h1{
+  font-size: 3rem;
+  color: $white;   
+  &.home{
+  text-transform: uppercase;   
+  font-weight: 100;
+  letter-spacing: 0.1rem;
+  }
+}
+h2,
+h3,
+h4,
+h5{
+  font-weight: 500;
+}
+p, li{
+  font-weight: 200;
+}
+.button{
+  @include letter-spacing;
+}
+
+.header-bg{
+  padding: 20px 40px;
+  &.home{
+    margin-top: 360px;
+    strong{
+      font-weight: 200;
+    }
+  }
+}
+.beige-bg{
+  background: rgba(187,178,164, 0.9);
+}
+.blue-bg{
+  background: $secondary-color;
+}
+.dark-blue-bg{
+  background: $dark-blue;
+}
+.blue-text{
+  color: $secondary-color;
+}
+.white-text{
+  color: $white;
+}
+.button{
+  text-transform: uppercase;
+}
+
+.double-spaced{
+  padding: 40px 0;
+}
+.whitespace{
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.no-bullets{
+  list-style-type:none;
+  margin: 0;
+}
+footer{
+  color: $white;
+  background: $primary-color;
+  h5{
+   @include letter-spacing;
+   color: $white; 
+   text-transform: uppercase;
+   font-size: 1rem;
+  }
+  a{
+    color: $white;
+  }
+}
+/* ==================== 5. Padding ==================== */
+$base-margin: 5px;
+$base-padding: 5px;
+.p1{
+  padding: $base-padding*4;
+}
+
+.pt1 {
+  padding-top: $base-margin*4 !important;
+}
+
+.pr1 {
+  padding-right: $base-margin*4 !important;
+}
+
+.pb1 {
+  padding-bottom: $base-margin*4 !important;
+}
+
+.pl1 {
+  padding-left: $base-margin*4 !important;
+}
+
+.p0{
+  padding: 0 !important;
+}
+
+.pt0 {
+  padding-top: 0 !important;
+}
+
+.pr0 {
+  padding-right: 0 !important;
+}
+
+.pb0 {
+  padding-bottom :0 !important;
+}
+
+.pl0 {
+  padding-left: 0 !important;
+}
+
+.bb0{
+  border-bottom: 0px !important;
+}
+
+
+@media only screen and (min-width: 40em) { 
+
+  .logo-wrapper {
+    position: relative;
+  }
+
+  .logo-wrapper .logo {
+    width: 92px;
+    height:  92px;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: -2px;
+    margin-left: -46px;
+  }
+
+  // Right part
+  .top-bar-section ul.right {
+    width: 50%;
+    padding-left: 60px;
+  }
+  
+  .top-bar-section ul.right li {
+    float:  left;
+  }
+
+  // Left part
+  .top-bar-section ul.left {
+    width:  50%;
+    padding-right: 60px;
+  }
+
+  .top-bar-section ul.left li {
+    float:  right;
+  }
+}
