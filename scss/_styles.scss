@@ -13,6 +13,36 @@ $dark-blue: #021c4f;
     border-bottom: 3px solid $primary-color;
   }
 }
+#about{
+  .main-nav .first .about a{
+    padding-bottom: 1rem;
+    border-bottom: 3px solid $primary-color;
+  }
+}
+#testimonials{
+  .main-nav .first .testimonials a{
+    padding-bottom: 1rem;
+    border-bottom: 3px solid $primary-color;
+  }
+}
+#services{
+  .main-nav .first .services a{
+    padding-bottom: 1rem;
+    border-bottom: 3px solid $primary-color;
+  }
+}
+#gallery{
+  .main-nav .first .gallery a{
+    padding-bottom: 1rem;
+    border-bottom: 3px solid $primary-color;
+  }
+}
+#contact{
+  .main-nav .first .contact a{
+    padding-bottom: 1rem;
+    border-bottom: 3px solid $primary-color;
+  }
+}
 .main-nav{
   min-height: 140px;
   ul{
@@ -144,6 +174,18 @@ p, li{
 .no-bullets{
   list-style-type:none;
   margin: 0;
+}
+.quote-box{
+  background: $white;
+  padding: 20px;
+}
+.arrow-down{
+  width: 0; 
+  height: 0; 
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 20px solid #ffffff;
+  margin: 0 auto;
 }
 footer{
   color: $white;
