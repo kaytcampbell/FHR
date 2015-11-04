@@ -112,6 +112,9 @@ p, li{
 .beige-bg{
   background: rgba(187,178,164, 0.9);
 }
+.dark-beige-bg{
+  background: #777064;
+}
 .blue-bg{
   background: $secondary-color;
 }
@@ -144,7 +147,7 @@ p, li{
 }
 footer{
   color: $white;
-  background: $primary-color;
+  background: #777064;
   h5{
    @include letter-spacing;
    color: $white; 
