@@ -7,6 +7,11 @@ $dark-blue: #021c4f;
   background: rgba(255, 255, 255, 0.9);
   position: relative;
 }
+.short-hero{
+  min-height: 140px;
+  background-size: cover;
+}
+
 #home{
   .main-nav .first .home a{
     padding-bottom: 1rem;
@@ -18,6 +23,9 @@ $dark-blue: #021c4f;
     padding-bottom: 1rem;
     border-bottom: 3px solid $primary-color;
   }
+  .short-hero{
+    background: url(../images/about-hero.png) no-repeat center center;
+  }
 }
 #testimonials{
   .main-nav .first .testimonials a{
@@ -26,21 +34,35 @@ $dark-blue: #021c4f;
   }
 }
 #services{
-  .main-nav .first .services a{
+  .main-nav .second .services a{
     padding-bottom: 1rem;
     border-bottom: 3px solid $primary-color;
   }
 }
 #gallery{
-  .main-nav .first .gallery a{
+  .main-nav .second .gallery a{
     padding-bottom: 1rem;
     border-bottom: 3px solid $primary-color;
   }
 }
 #contact{
-  .main-nav .first .contact a{
+  .main-nav .second .contact a{
     padding-bottom: 1rem;
     border-bottom: 3px solid $primary-color;
+  }
+  .short-hero{
+    background: url(../images/contact-hero.png) no-repeat center center;
+    background-size: cover;
+  }
+}
+form.contact-form{
+  textarea{
+    min-height: 150px;
+  }
+  input[type="text"],
+  textarea,
+  select{
+    padding: 25px 10px;
   }
 }
 .main-nav{
@@ -95,19 +117,11 @@ $dark-blue: #021c4f;
     margin-top: -60px;
   }
 }
-.short-hero{
-  min-height: 140px;
-  &.about{
-    background: url(../images/about-hero.png) no-repeat center center;
-    background-size: cover;
-  }
-}
-
 h1{
   font-size: 3rem;
-  color: $white;   
+  color: $white;
   &.home{
-  text-transform: uppercase;   
+  text-transform: uppercase;
   font-weight: 100;
   letter-spacing: 0.1rem;
   }
@@ -129,7 +143,6 @@ p, li{
 .button{
   @include letter-spacing;
 }
-
 .header-bg{
   padding: 20px 40px;
   &.home{
@@ -157,6 +170,10 @@ p, li{
 .white-text{
   color: $white;
 }
+.hint{
+  font-size: 0.875rem;
+  font-style: italic;
+}
 .button{
   text-transform: uppercase;
 }
@@ -180,8 +197,8 @@ p, li{
   padding: 20px;
 }
 .arrow-down{
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
   border-top: 20px solid #ffffff;
@@ -192,7 +209,7 @@ footer{
   background: #777064;
   h5{
    @include letter-spacing;
-   color: $white; 
+   color: $white;
    text-transform: uppercase;
    font-size: 1rem;
   }
@@ -289,7 +306,7 @@ $base-padding: 5px;
 }
 
 
-@media only screen and (min-width: 40em) { 
+@media only screen and (min-width: 40em) {
 
   .logo-wrapper {
     position: relative;
@@ -310,7 +327,7 @@ $base-padding: 5px;
     width: 50%;
     padding-left: 60px;
   }
-  
+
   .top-bar-section ul.right li {
     float:  left;
   }
