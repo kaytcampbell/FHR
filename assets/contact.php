@@ -18,23 +18,24 @@ if(isset($_POST['submit'])) {
     $v = new validate();
     $v->validateStr($name, "name", 1, 75);
     $v->validateEmail($email, "email");
-    $v->validateStr($phone, "phone", 10, 11);
+    $v->validatePhone($phone, "phone");
     $v->validateDD($quadrant, "quadrant");
     $v->validateStr($message, "message", 1, 1000);
 
     if(!$v->hasErrors()) {
           $header = "From: $email\n" . "Reply-To: $email\n";
-          $subject = "Contact Form Submission";
+          $subject = "Estimate Inquiry";
           $email_to = EMAIL;
 
-          $emailMessage = "Name: " . $name . "\n";
+          $emailHeader = "You've Received an Estimate Inquiry from fullhouserenovations.com";
+          $emailMessage = "Name: " . $name . "\n\n";
           $emailMessage .= "Email: " . $email . "\n\n";
           $emailMessage .= "Phone: " . $phone . "\n\n";
           $emailMessage .= "Quadrant: " . $quadrant . "\n\n";
           $emailMessage .= "Budget: " . $budget . "\n\n";
-          $emailMessage .= $message;
+          $emailMessage .= "Message: " . $message;
 
-          @mail($email_to, $subject ,$emailMessage ,$header );
+          @mail($email_to, $subject , $emailHeader, $emailMessage ,$header );
 
       $successMessage = "<p class=\"success\">Thank You. Your message has been sent.</p>";
 
@@ -65,7 +66,7 @@ if(isset($_POST['submit'])) {
     <title>Full House Renovations - Contact Us</title>
     <link rel="stylesheet" href="../stylesheets/app.css" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
-    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="../bower_components/modernizr/modernizr.js"></script>
   </head>
   <body id="contact">
     <div class="contain-to-grid">
@@ -118,9 +119,58 @@ if(isset($_POST['submit'])) {
         </div>
       </div>
     </div>
-
     <div class="row whitespace">
-      <div class="large-6 columns">
+      <div class="large-6 large-push-6 columns">
+        <div class="row">
+          <div class="large-12 columns">
+            <?php echo $message_text;  echo $errors;  ?>
+            <?php echo $successMessage; ?>
+            <h3 class="blue-text">Request an Estimate</h3>
+            <p>Fill out the form below if you’d like an estimate for your project, or just <a href="mailto:info@fullhouserenovations.com">send us an email</a>.</p>
+            <form id="contact_form" method="post" action="./contact.php">
+              <label>Name
+                <input type="text" name="name" class="textfield" placeholder="John Doe" value="" />
+              </label>
+              <label>Email
+                <input type="text" name="email" class="textfield" placeholder="youremail@domain.com" value="" />
+              </label>
+              <label>Phone Number
+                <input type="text" name="phone" class="textfield" placeholder="7805551234" value="" />
+              </label>
+              <div class="row">
+                <div class="medium-5 columns mb1">
+                  <img src="../images/fhr-quadrant.png">
+                </div>
+                <div class="medium-7 columns">
+                  <label>Please select which quadrant of the city you live in
+                    <select placeholder="Please Select" name="quadrant">
+                      <option value="Please Select" selected disabled hidden>Please Select</option>
+                      <option value="Quadrant 1 (North West)">Quadrant 1 (North West)</option>
+                      <option value="Quadrant 2 (North East)">Quadrant 2 (North East)</option>
+                      <option value="Quadrant 3 (South East)">Quadrant 3 (South East)</option>
+                      <option value="Quadrant 4 (South West)">Quadrant 4 (South West)</option>
+                    </select>
+                  </label>
+                  <p class="hint">Note: We only operate within Edmonton city limits. We <strong>do not</strong> work in Spruce Grove, St. Albert, Sherwood Park, Beaumont, etc.</p>
+                </div>
+              </div>
+              <label>Approximate Budget (Optional)
+                <select>
+                  <option value="10,000-20,000">$10,000 - $20,000</option>
+                  <option value="20,000-30,000">$20,000 - $30,000</option>
+                  <option value="30,000-50,000">$30,000 - $50,000</option>
+                  <option value="50,000 plus">$50,000 and up</option>
+                </select>
+              </label>
+              <label>Your Message
+              <textarea name="message" class="textarea" cols="45" placeholder="Tell us a little about your project" rows="5"></textarea>
+              </label>
+              <input type="submit" name="submit" class="button secondary" value="Submit" />
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="large-6 large-pull-6  columns">
         <img src="../images/fhr-map-large.png">
         <h3 class="blue-text mt1">Full House Renovations Inc.</h3>
         <p>
@@ -136,101 +186,6 @@ if(isset($_POST['submit'])) {
           <strong>Office Hours:</strong><br>
           8am - 4pm Monday to Friday
         </p>
-      </div>
-      <div class="large-6 columns">
-        <h3 class="blue-text">Request an Estimate</h3>
-        <p>Fill out the form below if you’d like an estimate for your project, or just <a href="mailto:info@fullhouserenovations.com">send us an email</a>.</p>
-        <form class="contact-form">
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Name
-                <input type="text" placeholder="John Doe" />
-              </label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Phone Number
-                <input type="text" placeholder="7804781234" />
-              </label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Email
-                <input type="text" placeholder="7804781234" />
-              </label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-7 columns">
-              <label>Please select which quadrant of the city you live in
-                <select placeholder="Please Select">
-                  <option value="Please Select" selected disabled hidden>Please Select</option>
-                  <option value="ten">Quadrant 1 (North West)</option>
-                  <option value="twenty">Quadrant 2 (North East)</option>
-                  <option value="thirty">Quadrant 3 (South East)</option>
-                  <option value="fifty">Quadrant 4 (South West)</option>
-                </select>
-              </label>
-              <p class="hint">Note: We only operate within Edmonton city limits. We <strong>do not</strong> work in Spruce Grove, St. Albert, Sherwood Park, Beaumont, etc.</p>
-            </div>
-            <div class="large-5 columns">
-              <img src="../images/fhr-quadrant.png">
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Approximate Budget (Optional)
-                <select>
-                  <option value="ten">$10,000 - $20,000</option>
-                  <option value="twenty">$20,000 - $30,000</option>
-                  <option value="thirty">$30,000 - $50,000</option>
-                  <option value="fifty">$50,000 and up</option>
-                </select>
-              </label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Tell Us a Bit About Your Project
-                <textarea></textarea>
-              </label>
-            </div>
-          </div>
-          <a href="#" class="button secondary">Submit</a>
-        </form>
-      </div>
-    </div>
-
-    <div class="contact-form">
-      <div class="row">
-        <?php echo $message_text;  echo $errors;  ?>
-        <?php echo $successMessage; ?>
-        <form id="contact_form" method="post" action="./contact.php">
-          <p><label>Name:<br />
-          <input type="text" name="name" class="textfield" value="" />
-          </label></p>
-          <p><label>Email: <br />
-          <input type="text" name="email" class="textfield" value="" />
-          </label></p>
-          <p><label>Phone: <br />
-          <input type="text" name="phone" class="textfield" value="" />
-          </label></p>
-          <label>Please select which quadrant of the city you live in
-            <select placeholder="Please Select" name="quadrant">
-              <option value="Please Select" selected disabled hidden>Please Select</option>
-              <option value="ten">Quadrant 1 (North West)</option>
-              <option value="twenty">Quadrant 2 (North East)</option>
-              <option value="thirty">Quadrant 3 (South East)</option>
-              <option value="fifty">Quadrant 4 (South West)</option>
-            </select>
-          </label>
-          <p><label>Message: <br />
-          <textarea name="message" class="textarea" cols="45" rows="5"></textarea>
-          </label></p>
-          <p><input type="submit" name="submit" class="button rounded" value="Submit" /></p>
-        </form>
       </div>
     </div>
 
@@ -284,8 +239,8 @@ if(isset($_POST['submit'])) {
       </div>
     </footer>
 
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/foundation/js/foundation.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/foundation/js/foundation.min.js"></script>
+  <script src="../js/app.js"></script>
   </body>
 </html>

@@ -50,12 +50,27 @@ class validate {
       $this->setError($emailName, "Please enter an email address.");
     } else if (!preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $emailVal)) {
       $this->setError($emailName, "Please enter a valid email address.");
-        }
+    }
   }// end validateEmail
-
 
   /**
   * Validates an email address
+  *
+  * @access public
+  * @param $phoneVal - the value of the $_POST request
+  * @param $phoneName - the name of the email form element being validated
+  * @return void
+  */
+
+  public function validatePhone($phoneVal, $phoneName) {
+    if(strlen($phoneVal) <= 0) {
+      $this->setError($phoneName, "Please enter a valid phone number, such as 7805551234");
+    }
+  }// end validatePhone
+
+
+  /**
+  * Validates a custom drop down address
   *
   * @access public
   * @param $ddVal - the value of the $_POST request
@@ -66,7 +81,7 @@ class validate {
     if(empty($ddVal)) {
       $this->setError($ddName, "Please select a " . ucfirst($ddName) . ".");
     }
-  }// end validateEmail
+  }// end validateDD
 
   // ---------------------------------------------------------------------------
   //  error handling methods
