@@ -461,7 +461,7 @@ $small-font-size: 80%;
 // $button-font-align: center;
 
 // We use these to control various hover effects.
-// $button-function-factor: -20%;
+$button-function-factor: 20%;
 
 // We use these to control button border styles.
 // $button-border-width: 0;
@@ -640,22 +640,22 @@ $button-border-color: $primary-color;
 
 // We use these to style the labels in different ways
 // $form-label-pointer: pointer;
-// $form-label-font-size: rem-calc(14);
-// $form-label-font-weight: $font-weight-normal;
+$form-label-font-size: rem-calc(16);
+$form-label-font-weight: 200;
 // $form-label-line-height: 1.5;
-// $form-label-font-color: scale-color($black, $lightness: 30%);
+$form-label-font-color: #777064;
 // $form-label-small-transform: capitalize;
-// $form-label-bottom-margin: 0;
+$form-label-bottom-margin: 10px;
 // $input-font-family: inherit;
-// $input-font-color: rgba(0,0,0,0.75);
+$input-font-color: #777064;
 // $input-font-size: rem-calc(14);
-// $input-placeholder-font-color: #cccccc;
+$input-placeholder-font-color: #d4d0c9;
 // $input-bg-color: $white;
 // $input-focus-bg-color: scale-color($white, $lightness: -2%);
-// $input-border-color: scale-color($white, $lightness: -20%);
+$input-border-color: $primary-color;
 // $input-focus-border-color: scale-color($white, $lightness: -40%);
 // $input-border-style: solid;
-// $input-border-width: 1px;
+$input-border-width: 3px;
 // $input-border-radius: $global-radius;
 // $input-disabled-bg: $gainsboro;
 // $input-disabled-cursor: $cursor-default-value;
