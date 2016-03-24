@@ -105,9 +105,9 @@ $dark-blue: #021c4f;
 
 h1{
   font-size: 3rem;
-  color: $white;   
+  color: $white;
   &.home{
-  text-transform: uppercase;   
+  text-transform: uppercase;
   font-weight: 100;
   letter-spacing: 0.1rem;
   }
@@ -180,19 +180,22 @@ p, li{
   padding: 20px;
 }
 .arrow-down{
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
   border-top: 20px solid #ffffff;
   margin: 0 auto;
+}
+.underline{
+  text-decoration: underline;
 }
 footer{
   color: $white;
   background: #777064;
   h5{
    @include letter-spacing;
-   color: $white; 
+   color: $white;
    text-transform: uppercase;
    font-size: 1rem;
   }
@@ -289,7 +292,7 @@ $base-padding: 5px;
 }
 
 
-@media only screen and (min-width: 40em) { 
+@media only screen and (min-width: 40em) {
 
   .logo-wrapper {
     position: relative;
@@ -310,7 +313,7 @@ $base-padding: 5px;
     width: 50%;
     padding-left: 60px;
   }
-  
+
   .top-bar-section ul.right li {
     float:  left;
   }
