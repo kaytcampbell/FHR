@@ -109,7 +109,7 @@ form.contact-form{
 }
 
 .tall-hero{
-  background: url(../images/home-hero.png) no-repeat top center;
+  background: url(../images/home-hero.jpg) no-repeat top center;
   background-size: cover;
   min-height: 688px;
   margin-top: -145px;
@@ -152,6 +152,31 @@ p, li{
     }
   }
 }
+.featured-box{
+  max-width: 100%;
+  border: 3px solid $primary-color;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  padding: 2% 0;
+}
+.featured-img{
+  max-width: 96%;
+}
+.quad-1{
+  max-width: 331px;
+  margin-bottom: 3px;
+}
+.quad-2{
+  max-width: 336px;
+  margin-bottom: 3px;
+}
+.quad-3{
+  max-width: 292px;
+}
+.quad-4{
+  max-width: 375px;
+}
 .beige-bg{
   background: rgba(187,178,164, 0.9);
 }
@@ -162,7 +187,9 @@ p, li{
   background: $secondary-color;
 }
 .dark-blue-bg{
-  background: $dark-blue;
+  background: url(../images/patio-bg.jpg) no-repeat top center;
+  background-size: cover;
+  min-height: 360px;
 }
 .blue-text{
   color: $secondary-color;
@@ -346,5 +373,22 @@ $base-padding: 5px;
 
   .top-bar-section ul.left li {
     float:  right;
+  }
+}
+
+@media only screen and (max-width: 40em) {
+  .quad-1,
+  .quad-2,
+  .quad-3,
+  .quad-4{
+    max-width: 100%;
+    padding: 0 0.9375rem;
+  }
+  .whitespace{
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .tall-hero h1{
+    font-size: 1.5rem;
   }
 }
