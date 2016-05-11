@@ -10,6 +10,7 @@ $dark-blue: #021c4f;
 .short-hero{
   min-height: 140px;
   background-size: cover;
+    margin-top: 20px;
 }
 
 #home{
@@ -24,7 +25,8 @@ $dark-blue: #021c4f;
     border-bottom: 3px solid $primary-color;
   }
   .short-hero{
-    background: url(../images/about-hero.png) no-repeat center center;
+    background: url(../images/about-hero.jpg) no-repeat center center;
+    background-size: cover;
   }
 }
 #testimonials{
@@ -32,17 +34,29 @@ $dark-blue: #021c4f;
     padding-bottom: 1rem;
     border-bottom: 3px solid $primary-color;
   }
+  .short-hero{
+    background: url(../images/testimonials-hero.jpg) no-repeat center center;
+    background-size: cover;
+  }
 }
 #services{
   .main-nav .second .services a{
     padding-bottom: 1rem;
     border-bottom: 3px solid $primary-color;
   }
+  .short-hero{
+    background: url(../images/services-hero.jpg) no-repeat center center;
+    background-size: cover;
+  }
 }
 #gallery{
   .main-nav .second .gallery a{
     padding-bottom: 1rem;
     border-bottom: 3px solid $primary-color;
+  }
+  .short-hero{
+    background: url(../images/services-hero.jpg) no-repeat center center;
+    background-size: cover;
   }
 }
 #contact{
@@ -163,19 +177,8 @@ p, li{
 .featured-img{
   max-width: 96%;
 }
-.quad-1{
-  max-width: 331px;
-  margin-bottom: 3px;
-}
-.quad-2{
-  max-width: 336px;
-  margin-bottom: 3px;
-}
-.quad-3{
-  max-width: 292px;
-}
-.quad-4{
-  max-width: 375px;
+.quad{
+  margin-bottom: 6px;
 }
 .beige-bg{
   background: rgba(187,178,164, 0.9);
@@ -189,6 +192,10 @@ p, li{
 .dark-blue-bg{
   background: url(../images/patio-bg.jpg) no-repeat top center;
   background-size: cover;
+  min-height: 360px;
+}
+.dark-blue-bg-color{
+  background: #021c4f;
   min-height: 360px;
 }
 .blue-text{
@@ -245,7 +252,7 @@ footer{
   background: #777064;
   h5{
    @include letter-spacing;
-   color: $white;
+   color: #bbb2a4;
    text-transform: uppercase;
    font-size: 1rem;
   }
@@ -380,18 +387,31 @@ $base-padding: 5px;
 }
 
 @media only screen and (max-width: 40em) {
-  .quad-1,
-  .quad-2,
-  .quad-3,
-  .quad-4{
-    max-width: 100%;
-    padding: 0 0.9375rem;
-  }
   .whitespace{
     padding-top: 40px;
     padding-bottom: 40px;
   }
+  .logo{
+    padding-top: 5px;
+  }
+  .top-bar-section ul li {
+    border-bottom: 2px solid lighten(#777064, 35%);
+  }
+  .top-bar-section ul li.home {
+    border-top: 2px solid lighten(#777064, 35%);
+  }
   .tall-hero h1{
     font-size: 1.5rem;
+  }
+  .tall-hero{
+    min-height: 400px;
+    margin-top: 0;
+  }
+  .header-bg.home{
+    margin-top: 200px;
+  }
+  .top-bar,
+  .title-area{
+    height: 70px;
   }
 }
