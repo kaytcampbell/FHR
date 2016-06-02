@@ -1341,16 +1341,16 @@ $input-border-width: 3px;
 // $include-html-tabs-classes: $include-html-classes;
 
 // $tabs-navigation-padding: rem-calc(16);
-// $tabs-navigation-bg-color: $silver;
-// $tabs-navigation-active-bg-color: $white;
+ $tabs-navigation-bg-color: #193876;
+ $tabs-navigation-active-bg-color: $primary-color;
 // $tabs-navigation-hover-bg-color: scale-color($tabs-navigation-bg-color, $lightness: -6%);
-// $tabs-navigation-font-color: $jet;
+ $tabs-navigation-font-color: #ffffff;
 // $tabs-navigation-active-font-color: $tabs-navigation-font-color;
 // $tabs-navigation-font-size: rem-calc(16);
 // $tabs-navigation-font-family: $body-font-family;
 
 // $tabs-content-margin-bottom: rem-calc(24);
-// $tabs-content-padding: ($column-gutter/2);
+$tabs-content-padding: 0;
 
 // $tabs-vertical-navigation-margin-bottom: 1.25rem;
 
@@ -1429,11 +1429,11 @@ $topbar-link-bg-color-hover: $primary-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
 // $topbar-link-text-transform: none;
-// $topbar-link-padding: ($topbar-height / 3);
+ $topbar-link-padding: 0.9375rem;
 // $topbar-back-link-size: rem-calc(18);
 // $topbar-link-dropdown-padding: rem-calc(20);
 // $topbar-button-font-size: .75rem;
-// $topbar-button-top: 7px;
+ $topbar-button-top: 30px;
 
 // Style the top bar dropdown elements
 $topbar-dropdown-bg: #bbb2a4;

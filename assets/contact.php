@@ -27,7 +27,7 @@ if(isset($_POST['submit'])) {
           $subject = "Estimate Inquiry";
           $email_to = EMAIL;
 
-          $emailHeader = "You've Received an Estimate Inquiry from fullhouserenovations.com";
+
           $emailMessage = "Name: " . $name . "\n\n";
           $emailMessage .= "Email: " . $email . "\n\n";
           $emailMessage .= "Phone: " . $phone . "\n\n";
@@ -35,7 +35,7 @@ if(isset($_POST['submit'])) {
           $emailMessage .= "Budget: " . $budget . "\n\n";
           $emailMessage .= "Message: " . $message;
 
-          @mail($email_to, $subject , $emailHeader, $emailMessage ,$header );
+          mail($email_to, $subject, $emailMessage, $header);
 
       $successMessage = "<p class=\"success\">Thank You. Your message has been sent.</p>";
 
@@ -73,7 +73,7 @@ if(isset($_POST['submit'])) {
      <nav class="top-bar" data-topbar>
        <ul class="title-area">
          <li class="name">
-           <h1><a class="logo hide-for-large-up" href="#"><img src="../images/full-house-white.png" width="130" /></a></h1>
+           <h1><a class="logo hide-for-large-up" href="../index.html"><img src="../images/full-house-white.png" width="180" /></a></h1>
          </li>
          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
        </ul>
@@ -88,7 +88,7 @@ if(isset($_POST['submit'])) {
          <ul class="left hide-for-large-up">
            <li class="services"><a href="services.html">Services</a></li>
            <li class="gallery"><a href="gallery.html">Gallery</a></li>
-           <li class="contact"><a href="contact.html">Contact</a></li>
+           <li class="contact"><a href="contact.php">Contact</a></li>
          </ul>
        </section>
      </nav>
@@ -102,11 +102,11 @@ if(isset($_POST['submit'])) {
               <li class="about"><a href="about.html">About</a></li>
               <li class="testimonials"><a href="testimonials.html">Testimonials</a></li>
             </ul>
-            <a href="#"><img src="../images/Full-house-logos.png" width="300" class="left"></a>
+            <a href="../index.html"><img src="../images/Full-house-logos.png" width="300" class="left"></a>
             <ul class="right second">
               <li class="services"><a href="services.html">Services</a></li>
               <li class="gallery"><a href="gallery.html">Gallery</a></li>
-              <li class="contact"><a href="contact.html">Contact</a></li>
+              <li class="contact"><a href="contact.php">Contact</a></li>
             </ul>
           </nav>
         </div>
@@ -156,6 +156,7 @@ if(isset($_POST['submit'])) {
               </div>
               <label>Approximate Budget (Optional)
                 <select>
+                  <option value="Please Select" hidden>Please Select</option>
                   <option value="10,000-20,000">$10,000 - $20,000</option>
                   <option value="20,000-30,000">$20,000 - $30,000</option>
                   <option value="30,000-50,000">$30,000 - $50,000</option>
@@ -171,7 +172,13 @@ if(isset($_POST['submit'])) {
         </div>
       </div>
       <div class="large-6 large-pull-6  columns">
-        <img src="../images/fhr-map-large.png">
+        <a href="https://www.google.ca/maps/place/Full+House+Renovations+Inc/@53.5695397,-113.5823105,15z/data=!4m5!3m4!1s0x0:0x2b01c3822934c321!8m2!3d53.5695397!4d-113.5823105">
+          <img src="../images/fhr-map-large.png">
+        </a>
+        <br>
+        <a href="https://www.google.ca/maps/place/Full+House+Renovations+Inc/@53.5695397,-113.5823105,15z/data=!4m5!3m4!1s0x0:0x2b01c3822934c321!8m2!3d53.5695397!4d-113.5823105">
+          Get Directions
+        </a>
         <h3 class="blue-text mt1">Full House Renovations Inc.</h3>
         <p>
           15120 117th Avenue<br>
@@ -213,26 +220,21 @@ if(isset($_POST['submit'])) {
             <li class="testimonials"><a href="testimonials.html">Testimonials</a></li>
             <li class="services"><a href="services.html">Services</a></li>
             <li class="gallery"><a href="gallery.html">Gallery</a></li>
-            <li class="contact"><a href="contact.html">Contact</a></li>
+            <li class="contact"><a href="contact.php">Contact</a></li>
           </ul>
         </div>
         <div class="large-3 columns pb1">
           <h5>
             Where To Find Us
           </h5>
-          <a href="contact.html"><img src="../images/fhr-map-small.png"></a>
+          <a href="contact.php"><img src="../images/fhr-map-small.png"></a>
         </div>
         <div class="large-3 columns pb1">
           <h5>
-            Around The Internet
+            Copyright
           </h5>
-          <ul class="no-bullets">
-            <li>Facebook</li>
-            <li>Twitter</li>
-            <li>Houzz</li>
-          </ul>
           <small>
-            &copy; Copyright 2015 Full House Renovations.<br>
+            &copy; Copyright 2016 Full House Renovations.<br>
             All rights reserved.
           </small>
         </div>
