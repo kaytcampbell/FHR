@@ -1,5 +1,5 @@
 <?php
-define("EMAIL", "kaytlyncampbell@gmail.com");
+define("EMAIL", "info@fullhouserenovations.com");
 
 if(isset($_POST['submit'])) {
 
@@ -10,7 +10,8 @@ if(isset($_POST['submit'])) {
   $name = trim($_POST['name']);
   $email = trim($_POST['email']);
   $phone = trim($_POST['phone']);
-  $quadrant = trim($_POST['quadrant']);
+  $secphone = trim($_POST['sec-phone']);
+  $address = trim($_POST['address']);
   $budget = trim($_POST['budget']);
   $message = trim($_POST['message']);
 
@@ -19,7 +20,7 @@ if(isset($_POST['submit'])) {
     $v->validateStr($name, "name", 1, 75);
     $v->validateEmail($email, "email");
     $v->validatePhone($phone, "phone");
-    $v->validateDD($quadrant, "quadrant");
+    $v->validateStr($address, "address", 1, 100);
     $v->validateStr($message, "message", 1, 1000);
 
     if(!$v->hasErrors()) {
@@ -27,15 +28,16 @@ if(isset($_POST['submit'])) {
           $subject = "Estimate Inquiry";
           $email_to = EMAIL;
 
-          $emailHeader = "You've Received an Estimate Inquiry from fullhouserenovations.com";
+
           $emailMessage = "Name: " . $name . "\n\n";
           $emailMessage .= "Email: " . $email . "\n\n";
-          $emailMessage .= "Phone: " . $phone . "\n\n";
-          $emailMessage .= "Quadrant: " . $quadrant . "\n\n";
+          $emailMessage .= "Primary Phone: " . $phone . "\n\n";
+          $emailMessage .= "Secondary Phone: " . $secphone . "\n\n";
+          $emailMessage .= "Address: " . $address . "\n\n";
           $emailMessage .= "Budget: " . $budget . "\n\n";
           $emailMessage .= "Message: " . $message;
 
-          @mail($email_to, $subject , $emailHeader, $emailMessage ,$header );
+          mail($email_to, $subject, $emailMessage, $header);
 
       $successMessage = "<p class=\"success\">Thank You. Your message has been sent.</p>";
 
@@ -50,7 +52,7 @@ if(isset($_POST['submit'])) {
       $nameErr = $v->getError("name");
       $emailErr = $v->getError("email");
       $phoneErr = $v->getError("phone");
-      $quadrantErr = $v->getError("quadrant");
+      $addressErr = $v->getError("address");
       $messageErr = $v->getError("message");
     }
 
@@ -73,7 +75,7 @@ if(isset($_POST['submit'])) {
      <nav class="top-bar" data-topbar>
        <ul class="title-area">
          <li class="name">
-           <h1><a class="logo hide-for-large-up" href="#"><img src="../images/full-house-white.png" width="130" /></a></h1>
+           <h1><a class="logo hide-for-large-up" href="../index.html"><img src="../images/full-house-white.png" width="180" /></a></h1>
          </li>
          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
        </ul>
@@ -88,7 +90,7 @@ if(isset($_POST['submit'])) {
          <ul class="left hide-for-large-up">
            <li class="services"><a href="services.html">Services</a></li>
            <li class="gallery"><a href="gallery.html">Gallery</a></li>
-           <li class="contact"><a href="contact.html">Contact</a></li>
+           <li class="contact"><a href="contact.php">Contact</a></li>
          </ul>
        </section>
      </nav>
@@ -102,11 +104,11 @@ if(isset($_POST['submit'])) {
               <li class="about"><a href="about.html">About</a></li>
               <li class="testimonials"><a href="testimonials.html">Testimonials</a></li>
             </ul>
-            <a href="#"><img src="../images/Full-house-logos.png" width="300" class="left"></a>
+            <a href="../index.html"><img src="../images/Full-house-logos.png" width="300" class="left"></a>
             <ul class="right second">
               <li class="services"><a href="services.html">Services</a></li>
               <li class="gallery"><a href="gallery.html">Gallery</a></li>
-              <li class="contact"><a href="contact.html">Contact</a></li>
+              <li class="contact"><a href="contact.php">Contact</a></li>
             </ul>
           </nav>
         </div>
@@ -134,28 +136,19 @@ if(isset($_POST['submit'])) {
               <label>Email
                 <input type="text" name="email" class="textfield" placeholder="youremail@domain.com" value="" />
               </label>
-              <label>Phone Number
+              <label>Primary Phone Number
                 <input type="text" name="phone" class="textfield" placeholder="7805551234" value="" />
               </label>
-              <div class="row">
-                <div class="medium-5 columns mb1">
-                  <img src="../images/fhr-quadrant.png">
-                </div>
-                <div class="medium-7 columns">
-                  <label>Please select which quadrant of the city you live in
-                    <select placeholder="Please Select" name="quadrant">
-                      <option value="Please Select" selected disabled hidden>Please Select</option>
-                      <option value="Quadrant 1 (North West)">Quadrant 1 (North West)</option>
-                      <option value="Quadrant 2 (North East)">Quadrant 2 (North East)</option>
-                      <option value="Quadrant 3 (South East)">Quadrant 3 (South East)</option>
-                      <option value="Quadrant 4 (South West)">Quadrant 4 (South West)</option>
-                    </select>
-                  </label>
-                  <p class="hint">Note: We only operate within Edmonton city limits. We <strong>do not</strong> work in Spruce Grove, St. Albert, Sherwood Park, Beaumont, etc.</p>
-                </div>
-              </div>
+              <label>Secondary Phone Number (optional)
+                <input type="text" name="sec-phone" class="textfield" placeholder="7805551234" value="" />
+              </label>
+              <label>Address
+                <input type="text" name="address" class="textfield" placeholder="742 Evergreen Terrace" value="" />
+              </label>
+              <p class="hint">Note: We only operate within Edmonton city limits and select areas.</p>
               <label>Approximate Budget (Optional)
-                <select>
+                <select name="budget">
+                  <option value="Please Select" hidden>Please Select</option>
                   <option value="10,000-20,000">$10,000 - $20,000</option>
                   <option value="20,000-30,000">$20,000 - $30,000</option>
                   <option value="30,000-50,000">$30,000 - $50,000</option>
@@ -171,7 +164,13 @@ if(isset($_POST['submit'])) {
         </div>
       </div>
       <div class="large-6 large-pull-6  columns">
-        <img src="../images/fhr-map-large.png">
+        <a href="https://www.google.ca/maps/place/Full+House+Renovations+Inc/@53.5695397,-113.5823105,15z/data=!4m5!3m4!1s0x0:0x2b01c3822934c321!8m2!3d53.5695397!4d-113.5823105">
+          <img src="../images/fhr-map-large.png">
+        </a>
+        <br>
+        <a href="https://www.google.ca/maps/place/Full+House+Renovations+Inc/@53.5695397,-113.5823105,15z/data=!4m5!3m4!1s0x0:0x2b01c3822934c321!8m2!3d53.5695397!4d-113.5823105">
+          Get Directions
+        </a>
         <h3 class="blue-text mt1">Full House Renovations Inc.</h3>
         <p>
           15120 117th Avenue<br>
@@ -213,26 +212,21 @@ if(isset($_POST['submit'])) {
             <li class="testimonials"><a href="testimonials.html">Testimonials</a></li>
             <li class="services"><a href="services.html">Services</a></li>
             <li class="gallery"><a href="gallery.html">Gallery</a></li>
-            <li class="contact"><a href="contact.html">Contact</a></li>
+            <li class="contact"><a href="contact.php">Contact</a></li>
           </ul>
         </div>
         <div class="large-3 columns pb1">
           <h5>
             Where To Find Us
           </h5>
-          <a href="contact.html"><img src="../images/fhr-map-small.png"></a>
+          <a href="contact.php"><img src="../images/fhr-map-small.png"></a>
         </div>
         <div class="large-3 columns pb1">
           <h5>
-            Around The Internet
+            Copyright
           </h5>
-          <ul class="no-bullets">
-            <li>Facebook</li>
-            <li>Twitter</li>
-            <li>Houzz</li>
-          </ul>
           <small>
-            &copy; Copyright 2015 Full House Renovations.<br>
+            &copy; Copyright 2016 Full House Renovations.<br>
             All rights reserved.
           </small>
         </div>

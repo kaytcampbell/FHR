@@ -69,14 +69,18 @@ $dark-blue: #021c4f;
     background-size: cover;
   }
 }
-form.contact-form{
+#contact_form{
   textarea{
     min-height: 150px;
   }
   input[type="text"],
-  textarea,
+  textarea{
+    padding: 1rem 0.5rem;
+    height: auto;
+  }
   select{
-    padding: 25px 10px;
+    padding: 1rem 0.5rem;
+    height: auto;
   }
 }
 .main-nav{
@@ -166,6 +170,9 @@ p, li{
     }
   }
 }
+.top-bar .name h1 a{
+  padding: 0.5rem 0.9375rem;
+}
 .featured-box{
   max-width: 100%;
   border: 3px solid $primary-color;
@@ -246,6 +253,13 @@ p, li{
 }
 .success{
   color: #99cc66;
+}
+.tabs{
+  display: table;
+  margin: 0 auto;
+}
+input[type="text"]::-ms-input-placeholder {
+   color: #dddddd;
 }
 footer{
   color: $white;
@@ -392,7 +406,7 @@ $base-padding: 5px;
     padding-bottom: 40px;
   }
   .logo{
-    padding-top: 5px;
+    padding-top: 1rem;
   }
   .top-bar-section ul li {
     border-bottom: 2px solid lighten(#777064, 35%);
@@ -410,6 +424,18 @@ $base-padding: 5px;
   .header-bg.home{
     margin-top: 200px;
   }
+  h1.home{
+    font-weight: 200;
+  }
+  h1{
+    font-size: 2rem;
+  }
+  .tabs > li{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1180px){
   .top-bar,
   .title-area{
     height: 70px;

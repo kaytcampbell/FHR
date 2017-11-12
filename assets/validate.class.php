@@ -68,21 +68,6 @@ class validate {
     }
   }// end validatePhone
 
-
-  /**
-  * Validates a custom drop down address
-  *
-  * @access public
-  * @param $ddVal - the value of the $_POST request
-  * @param $ddName - the name of the dropdown form element being validated
-  * @return void
-  */
-  public function validateDD($ddVal, $ddName) {
-    if(empty($ddVal)) {
-      $this->setError($ddName, "Please select a " . ucfirst($ddName) . ".");
-    }
-  }// end validateDD
-
   // ---------------------------------------------------------------------------
   //  error handling methods
   // ---------------------------------------------------------------------------
