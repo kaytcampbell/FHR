@@ -1,5 +1,5 @@
 <?php
-define("EMAIL", "kaytlyncampbell@gmail.com");
+define("EMAIL", "info@fullhouserenovations.com");
 
 if(isset($_POST['submit'])) {
 
@@ -10,7 +10,8 @@ if(isset($_POST['submit'])) {
   $name = trim($_POST['name']);
   $email = trim($_POST['email']);
   $phone = trim($_POST['phone']);
-  $quadrant = trim($_POST['quadrant']);
+  $secphone = trim($_POST['sec-phone']);
+  $address = trim($_POST['address']);
   $budget = trim($_POST['budget']);
   $message = trim($_POST['message']);
 
@@ -19,7 +20,7 @@ if(isset($_POST['submit'])) {
     $v->validateStr($name, "name", 1, 75);
     $v->validateEmail($email, "email");
     $v->validatePhone($phone, "phone");
-    $v->validateDD($quadrant, "quadrant");
+    $v->validateStr($address, "address", 1, 100);
     $v->validateStr($message, "message", 1, 1000);
 
     if(!$v->hasErrors()) {
@@ -30,8 +31,9 @@ if(isset($_POST['submit'])) {
 
           $emailMessage = "Name: " . $name . "\n\n";
           $emailMessage .= "Email: " . $email . "\n\n";
-          $emailMessage .= "Phone: " . $phone . "\n\n";
-          $emailMessage .= "Quadrant: " . $quadrant . "\n\n";
+          $emailMessage .= "Primary Phone: " . $phone . "\n\n";
+          $emailMessage .= "Secondary Phone: " . $secphone . "\n\n";
+          $emailMessage .= "Address: " . $address . "\n\n";
           $emailMessage .= "Budget: " . $budget . "\n\n";
           $emailMessage .= "Message: " . $message;
 
@@ -50,7 +52,7 @@ if(isset($_POST['submit'])) {
       $nameErr = $v->getError("name");
       $emailErr = $v->getError("email");
       $phoneErr = $v->getError("phone");
-      $quadrantErr = $v->getError("quadrant");
+      $addressErr = $v->getError("address");
       $messageErr = $v->getError("message");
     }
 
@@ -134,28 +136,18 @@ if(isset($_POST['submit'])) {
               <label>Email
                 <input type="text" name="email" class="textfield" placeholder="youremail@domain.com" value="" />
               </label>
-              <label>Phone Number
+              <label>Primary Phone Number
                 <input type="text" name="phone" class="textfield" placeholder="7805551234" value="" />
               </label>
-              <div class="row">
-                <div class="medium-5 columns mb1">
-                  <img src="../images/fhr-quadrant.png">
-                </div>
-                <div class="medium-7 columns">
-                  <label>Please select which quadrant of the city you live in
-                    <select placeholder="Please Select" name="quadrant">
-                      <option value="Please Select" selected disabled hidden>Please Select</option>
-                      <option value="Quadrant 1 (North West)">Quadrant 1 (North West)</option>
-                      <option value="Quadrant 2 (North East)">Quadrant 2 (North East)</option>
-                      <option value="Quadrant 3 (South East)">Quadrant 3 (South East)</option>
-                      <option value="Quadrant 4 (South West)">Quadrant 4 (South West)</option>
-                    </select>
-                  </label>
-                  <p class="hint">Note: We only operate within Edmonton city limits. We <strong>do not</strong> work in Spruce Grove, St. Albert, Sherwood Park, Beaumont, etc.</p>
-                </div>
-              </div>
+              <label>Secondary Phone Number (optional)
+                <input type="text" name="sec-phone" class="textfield" placeholder="7805551234" value="" />
+              </label>
+              <label>Address
+                <input type="text" name="address" class="textfield" placeholder="742 Evergreen Terrace" value="" />
+              </label>
+              <p class="hint">Note: We only operate within Edmonton city limits and select areas.</p>
               <label>Approximate Budget (Optional)
-                <select>
+                <select name="budget">
                   <option value="Please Select" hidden>Please Select</option>
                   <option value="10,000-20,000">$10,000 - $20,000</option>
                   <option value="20,000-30,000">$20,000 - $30,000</option>
