@@ -226,7 +226,7 @@ if(isset($_POST['submit'])) {
             Copyright
           </h5>
           <small>
-            &copy; Copyright 2016 Full House Renovations.<br>
+            &copy; Copyright Full House Renovations.<br>
             All rights reserved.
           </small>
         </div>
