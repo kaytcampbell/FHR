@@ -15,7 +15,7 @@ The easiest way to get started with Foundation + Compass.
 
   * [Download this starter compass project and unzip it](https://github.com/zurb/foundation-compass-template/archive/master.zip)
   * Run `bower install` to install the latest version of Foundation
-  
+
 Then when you're working on your project, just run the following command:
 
 ```bash
@@ -30,3 +30,6 @@ If you'd like to upgrade to a newer version of Foundation down the road just run
 bower update
 ```
 
+## View project
+
+No server required, just right click index.html to view in browser.

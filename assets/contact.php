@@ -223,13 +223,15 @@ if(isset($_POST['submit'])) {
         </div>
         <div class="large-3 columns pb1">
           <h5>
-            Copyright
+            Follow Us
           </h5>
-          <small>
-            &copy; Copyright Full House Renovations.<br>
-            All rights reserved.
-          </small>
+          <a href="https://www.instagram.com/fullhousereno/" target="_blank"><img class="pr1" src="../images/insta_logo.png"></a><a href="https://www.houzz.com/pro/fullhouserenovations/full-house-renovations" target="_blank"><img src="../images/houzz_logo.png"></a>
         </div>
+      </div>
+      <div class="text-center pb1">
+        <small>
+          &copy; Copyright Full House Renovations. All rights reserved.
+        </small>
       </div>
     </footer>
 
