@@ -22,6 +22,8 @@ Then when you're working on your project, just run the following command:
 bundle exec compass watch
 ```
 
+To prevent caching, a version number is attached to stylesheets, so when modifying for production update the version.
+
 ## Upgrading
 
 If you'd like to upgrade to a newer version of Foundation down the road just run:

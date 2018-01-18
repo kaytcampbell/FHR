@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Full House Renovations - Home</title>
-    <link rel="stylesheet" href="stylesheets/app.css" />
+    <link rel="stylesheet" href="stylesheets/app-v1.0.css" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
     <script src="bower_components/modernizr/modernizr.js"></script>
     <script type="text/javascript" src="js/instafeed.js"></script>
@@ -62,20 +62,10 @@
         </div>
       </div>
     </div>
-    <script type="text/javascript">
-      var feed = new Instafeed({
-          get: 'user',
-          userId: 4728106358,
-          clientId: 'd458ccc8230c43c5abd05265ab1237f4',
-          accessToken: '5379614.d458ccc.2b3ddf24eae748a7a6c97ecf34dae1cb'
-      });
-      feed.run();
-    </script>
-    <div id="instafeed"></div>
 
     <div class="row">
       <div class="large-8 columns large-centered text-center">
-        <p class="double-spaced">
+        <p class="mb0 double-spaced">
           Full House Renovations is the leading expert in home renovations and general
           contracting, and has been in business since 1989 in Edmonton. We specialize in many <a href="assets/services.html">services</a> including
           ensuites, basements, kitchens, and complete home remodeling. All of our
@@ -85,8 +75,30 @@
         </div>
       </div>
     </div>
-
+    <script type="text/javascript">
+      var feed = new Instafeed({
+          get: 'user',
+          userId: 4728106358,
+          clientId: 'd458ccc8230c43c5abd05265ab1237f4',
+          accessToken: '4728106358.d458ccc.9ac8c4af68324c84b63b53889da0dc48',
+          limit: 12,
+          resolution: 'low_resolution',
+          template: '<a href="{{link}}" target="_blank"><img src="{{image}}" class="instafeed__image" /></a>'
+      });
+      feed.run();
+    </script>
     <div class="row">
+      <div class="column border-bottom">
+      </div>
+    </div>
+    <div id="instafeed" class="center"></div>
+    <div class="row">
+      <div class="column text-center border-bottom">
+        <a class="button mt1 mb1" href="http://instagram.com/fullhousereno" target="_blank">Follow us on Instagram</a>
+      </div>
+    </div>
+
+    <div class="row double-spaced">
       <div class="medium-4 columns text-center">
         <div class="featured-box">
           <img src="images/quality.png" class="featured-img">
