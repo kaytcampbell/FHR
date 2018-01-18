@@ -274,6 +274,30 @@ footer{
     color: $white;
   }
 }
+
+#instafeed{
+  height: 250px;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 -125px;
+}
+.instafeed__image{
+  width: 250px;
+  min-height: 250px;
+}
+
+.border-top{
+  border-top: 3px solid #193876;
+}
+
+.border-bottom{
+  border-bottom: 3px solid #193876;
+  margin-bottom: 40px;
+}
+
+.text-center{
+  text-align: center;
+}
 /* ==================== 5. Padding ==================== */
 $base-margin: 5px;
 $base-padding: 5px;
@@ -432,6 +456,18 @@ $base-padding: 5px;
   }
   .tabs > li{
     width: 100%;
+  }
+  #instafeed{
+    height: 100px;
+    overflow: hidden;
+    margin: 0 -50px;
+  }
+  .instafeed__image{
+    width: 100px;
+    min-height: 100px;
+  }
+  .border-bottom{
+    margin-bottom: 20px;
   }
 }
 
